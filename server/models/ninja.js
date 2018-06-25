@@ -33,7 +33,7 @@ const NinjaSchema =  new Schema({
 
 });
 
-const Ninja = mongoose.model('ninja', NinjaSchema);
+const Ninja = mongoose.model('Players', NinjaSchema);
 
 module.exports = Ninja;
 
