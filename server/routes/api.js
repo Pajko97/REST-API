@@ -7,16 +7,17 @@ router.get('/players', function(req, res, next) {
     Ninja.aggregate().near({ 
         near: 
         {
-         'type': 'Point',
+         'type': "Point",
           'coordinates': [parseFloat(req.query.lng), parseFloat(req.query.lat)] }, 
           maxDistance: 100000, 
           spherical: true, 
           distanceField: "dis" 
          }
          ).then(function(ninjas){
-            
+            console.log(ninjas);
             res.send(ninjas);
-          });
+          })
+          .catch((error) => console.log(error));
       });
 
 router.post('/players', function(req, res, next) {

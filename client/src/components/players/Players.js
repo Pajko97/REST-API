@@ -5,18 +5,42 @@ class Players extends Component {
     constructor() {
         super();
         this.state = {
-            players : []
+            players : [],
         }
+        this.onSubmit = this.onSubmit.bind(this);
     }
-    componentDidMount() {
-        axios.get('/api/players')
-        .then((players) => console.log(players))
-        .catch(error)
+    
+    onSubmit(e) {
+      e.preventDefault();
+      var lng = e.target.elements.lng.value;
+      var lat = e.target.elements.lat.value;
+      axios.get('/api/players/?lng=' +lng + '&lat=' +lat)
+      .then((res) => this.setState({
+        players: res.data
+      }))
+      
     }
+
   render() {
+    let players = this.state.players;
     return (
       <div>
-        <h1>Igraci</h1>
+        <form onSubmit={this.onSubmit}>
+          <input type="text" name="lng" placeholder="Enter longitude"/>
+          <input type="text" name="lat" placeholder="Enter latitude"/>
+          <button type="submit">Submit</button>
+        </form>
+        
+        {
+          
+          players.map((player) => {
+            return(
+          <div>
+            <p>{player.name}</p>
+            <p>{player.rank}</p>
+          </div>
+            );
+        })}
       </div>
     )
   }
