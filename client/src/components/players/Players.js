@@ -14,33 +14,20 @@ class Players extends Component {
       e.preventDefault();
       var lng = e.target.elements.lng.value;
       var lat = e.target.elements.lat.value;
-      axios.get('/api/players/?lng=' +lng + '&lat=' +lat)
+
+      axios.get('/api/igraci/')
       .then((res) => this.setState({
         players: res.data
       }))
       
     }
 
+
   render() {
-    let players = this.state.players;
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="lng" placeholder="Enter longitude"/>
-          <input type="text" name="lat" placeholder="Enter latitude"/>
-          <button type="submit">Submit</button>
-        </form>
-        
-        {
-          
-          players.map((player) => {
-            return(
-          <div>
-            <p>{player.name}</p>
-            <p>{player.rank}</p>
-          </div>
-            );
-        })}
+     
+        <h2>Players</h2>
       </div>
     )
   }

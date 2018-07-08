@@ -20,6 +20,6 @@ app.use((err,req,res,next) => {
 
 });
 
-app.listen(process.env.port || 4000, function() {
+app.listen(4000, function() {
     console.log('Naculjili smo usi')
 });
