@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 
-const app = express();
+const app = express(8080);
 
 //conect to mongodb
 mongoose.connect('mongodb://localhost/ninjago');
@@ -20,6 +20,6 @@ app.use((err,req,res,next) => {
 
 });
 
-app.listen(4000, function() {
+app.listen(8080, function() {
     console.log('Naculjili smo usi')
 });

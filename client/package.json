@@ -16,11 +16,12 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://localhost:4000"
-    }, 
-    "assets": {
-      "target" : "http://localhost:4000"
+      "target": "http://localhost:8080/"
     },
-    "secure":false
+
+    "assets": {
+      "target" : "http://localhost:8080/"
+    }
+    
 }
 }
