@@ -2,7 +2,7 @@ const express = require('express');
 const routes = require('./routes/api');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const cors = require('cors');
 
 const app = express(8080);
 
@@ -10,7 +10,7 @@ const app = express(8080);
 mongoose.connect('mongodb://localhost/ninjago');
 mongoose.Promise = global.Promise;
 
-
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api',routes);

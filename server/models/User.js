@@ -13,13 +13,19 @@ const UserSchema = new Schema({
     type: String,
     unique: true,
     required: true,
-    trim: true
   },
+
   password: {
     type: String,
     required: true,
   },
-  city: {
+
+  available : {
+    type : Boolean,
+    default: false
+  },
+  
+  rank: {
     type: String,
     required: true
   }
