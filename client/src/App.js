@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Register from './routes/Register';
+import Users from './routes/Users';
 
 
 class App extends Component {
-  constructor() {
-    super();
-      this.state = {
-        users : [],
-      }
-}
+ 
+
 
 
   render() {
     return (
       <div className="App">
         <Register/>
+        <Users/>
       </div>
     );
   }
